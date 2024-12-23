@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
     return (
@@ -11,11 +12,13 @@ export default function Header() {
                     alt="Logo SMK Negeri 2 Tabanan"
                     className="mx-auto lg:m-2"
                 />
-                <h1 className="text-xl lg:my-auto m-2">Duta Cafetaria</h1>
+                <Link href="/" className="text-xl lg:my-auto m-2">
+                    <h1>Duta Cafetaria</h1>
+                </Link>
             </div>
             <div className="hidden lg:flex flex-row ml-auto">
-                <p className="my-auto m-2">Login</p>
-                <p className="my-auto m-2">Daftar</p>
+                <Link href="/masuk" className="my-auto m-2">Masuk</Link>
+                <Link href="/daftar" className="my-auto m-2">Daftar</Link>
             </div>
         </header>
     )

@@ -24,9 +24,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Nasi Goreng'
                         />
-                        <div className='absolute bottom-8 left-[38.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Nasi Goreng</p>
-                            <p>Rp 8.000 - 10.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Nasi Goreng</p>
+                                <p>Rp 8.000 - 10.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -36,9 +38,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Capcay'
                         />
-                        <div className='absolute bottom-8 left-[44%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Capcay</p>
-                            <p>Rp 10.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Capcay</p>
+                                <p>Rp 10.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -48,9 +52,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Mie Goreng'
                         />
-                        <div className='absolute bottom-8 left-[38.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Mie Instan Goreng</p>
-                            <p>Rp 8.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Mie Instan Goreng</p>
+                                <p>Rp 8.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -60,9 +66,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Mie Kuah'
                         />
-                        <div className='absolute bottom-8 left-[40%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Mie Instan Kuah</p>
-                            <p>Rp 8.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Mie Instan Kuah</p>
+                                <p>Rp 8.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                 </Swiper>
@@ -82,9 +90,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Es Teh'
                         />
-                        <div className='absolute bottom-8 left-[43.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Es Teh</p>
-                            <p>Rp 3.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Es Teh</p>
+                                <p>Rp 3.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -94,9 +104,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Es Jeruk'
                         />
-                        <div className='absolute bottom-8 left-[43.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Es Jeruk</p>
-                            <p>Rp 3.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Es Jeruk</p>
+                                <p>Rp 3.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -106,9 +118,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Kopi'
                         />
-                        <div className='absolute bottom-8 left-[43.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Kopi</p>
-                            <p>Rp 3.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Kopi</p>
+                                <p>Rp 3.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -118,9 +132,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Melon Squash'
                         />
-                        <div className='absolute bottom-8 left-[40.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Melon Squash</p>
-                            <p>Rp 6.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Melon Squash</p>
+                                <p>Rp 6.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -130,9 +146,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Fruit Squash'
                         />
-                        <div className='absolute bottom-8 left-[41.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Fruit Squash</p>
-                            <p>Rp 6.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Fruit Squash</p>
+                                <p>Rp 6.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -142,9 +160,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Orange Squash'
                         />
-                        <div className='absolute bottom-8 left-[40%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Orange Squash</p>
-                            <p>Rp 6.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Orange Squash</p>
+                                <p>Rp 6.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -154,9 +174,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Rainbow'
                         />
-                        <div className='absolute bottom-8 left-[43.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Rainbow</p>
-                            <p>Rp 6.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Rainbow</p>
+                                <p>Rp 6.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -166,9 +188,11 @@ export default function MenuCarousel() {
                         height={300}
                         alt='Sunrise'
                         />
-                        <div className='absolute bottom-8 left-[43.5%] p-2 bg-slate-400 bg-opacity-50'>
-                            <p>Sunrise</p>
-                            <p>Rp 6.000</p>
+                        <div className='w-full absolute bottom-8'>
+                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                                <p>Sunrise</p>
+                                <p>Rp 6.000</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                 </Swiper>
