@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@mui/material";
+import { Button, Divider, Drawer } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,10 +25,20 @@ export default function Header() {
                 <Link href="/" className="text-xl my-auto m-2">
                     <h1>Duta Cafetaria</h1>
                 </Link>
-                <div className="lg:hidden my-auto ml-28">
-                    <button onClick={toggleDrawer(true)} className="md:hidden"><Menu color="inherit"/> </button>
+                <div className="lg:hidden my-auto ml-auto">
+                    <button onClick={toggleDrawer(true)} className="md:hidden absolute right-6 top-10"><Menu color="inherit"/> </button>
                 </div>
             </div>
+            <Drawer open={open} onClose={toggleDrawer(false)}>
+                <div className="w-[50vw]">
+                    <h2 className="text-lg m-2">Pengaturan</h2>
+                    <Divider />
+                    <div className="p-2 flex flex-col text-center" onClick={toggleDrawer(false)}>
+                        <Link href="/masuk" className="lg:my-auto m-2"><Button color="inherit" variant="contained">Masuk</Button></Link>
+                        <Link href="/daftar" className="lg:my-auto m-2"><Button color="inherit" variant="contained">Daftar</Button></Link>
+                    </div>
+                </div>
+            </Drawer>
             <div className="hidden lg:flex flex-row ml-auto">
                 <Link href="/masuk" className="my-auto m-2"><Button color="inherit">Masuk</Button></Link>
                 <Link href="/daftar" className="my-auto m-2"><Button color="inherit">Daftar</Button></Link>

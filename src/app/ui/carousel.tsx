@@ -8,7 +8,7 @@ import 'swiper/css/bundle';
 
 export default function MenuCarousel() {
     return (
-        <div className="lg:grid grid-cols-2 gap-4 mx-4">
+        <div className="lg:grid grid-cols-2 gap-4 mx-4 text-white">
             <div>
                 <p className="mb-4">MAKANAN</p>
                 <Swiper
