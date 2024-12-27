@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { MongoClient } from "mongodb";
+import bcrypt from 'bcrypt';
 
 export default async function signup(formData: FormData) {
     const client = new MongoClient(process.env.MONGODB_URI || "")
@@ -17,12 +18,14 @@ export default async function signup(formData: FormData) {
         console.error("username udah dipake anj")
         return;
     }
-    users.insertOne({
-        "nama": formData.get("nama"),
-        "lokasi": "Belum Ditentukan",
-        "username": formData.get("username"),
-        "password": formData.get("password"),
-        "admin": false,
+    bcrypt.hash(formData.get("password")!.toString(), 10, function (err, hash) {
+        users.insertOne({
+            "nama": formData.get("nama"),
+            "lokasi": "Belum Ditentukan",
+            "username": formData.get("username"),
+            "password": hash,
+            "admin": "false",
+        })
     })
     redirect("/");
 }

@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { MongoClient } from "mongodb";
+import bcrypt from 'bcrypt';
 
 export default async function login(formData: FormData) {
     const client = new MongoClient(process.env.MONGODB_URI || "")
@@ -18,11 +19,12 @@ export default async function login(formData: FormData) {
         console.error("ga ada usernamenya goblok");
         return;
     }
-    if (user.password != formData.get("password")) {
-        console.error("password salah bangke");
-        return;
-    }
-    // localStorage.setItem("logged_in", "true");
-    // localStorage.setItem("logged_user", JSON.stringify(user));
-    redirect("/");
+    bcrypt.compare(formData.get("password")!.toString(), user.password, function(err, result) {
+        if (!result) {
+            console.error("password salah bangke");
+            return;
+        } else {
+        redirect("/");
+        }
+    })
 }
