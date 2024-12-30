@@ -3,7 +3,7 @@
 import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import login from '../lib/login';
+import login from "../lib/server";
 import { useState } from 'react';
 
 export default function Login() {
@@ -22,7 +22,7 @@ export default function Login() {
     return (
         <Card className="mx-2 md:mx-[24.707vw]">
             <CardContent>
-                <form method='POST' onSubmit={loginValid} action={login}>
+                <form method='POST' onSubmit={loginValid} action={login} encType='application/x-www-form-urlencoded'>
                     <label htmlFor='username'>Username</label><br/>
                     <input type='text' name='username' className='border' required onChange={(e) => setUsername(e.target.value)}/><br/>
                     <label htmlFor='password'>Password</label><br/>
