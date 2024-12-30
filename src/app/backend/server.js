@@ -1,13 +1,13 @@
 "use server";
 
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+import express from "express";
+import { connect } from "mongoose";
+import { config } from "dotenv";
 
 const app = express();
-dotenv.config();
+config();
 const port = process.env.PORT;
-mongoose.connect(process.env.MONGODB_URI)
+connect(process.env.MONGODB_URI)
 .then(() => console.log("MongoDB connected successfully"))
 .catch(err => console.error(err));
 
