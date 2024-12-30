@@ -23,6 +23,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Nasi Goreng'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -37,6 +38,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Capcay'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -51,6 +53,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Mie Goreng'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -65,6 +68,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Mie Kuah'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -89,6 +93,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Es Teh'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -103,6 +108,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Es Jeruk'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -117,6 +123,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Kopi'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -131,6 +138,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Melon Squash'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -145,6 +153,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Fruit Squash'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -159,6 +168,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Orange Squash'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -173,6 +183,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Rainbow'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
@@ -187,6 +198,7 @@ export default function MenuCarousel() {
                         width={659}
                         height={300}
                         alt='Sunrise'
+                        className='w-[100%]'
                         />
                         <div className='w-full absolute bottom-8'>
                             <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
