@@ -3,7 +3,7 @@
 import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import signup from '../lib/signup';
+import signup from '@/app/lib/signup';
 import { useState } from 'react';
 
 export default function Signup() {
@@ -35,7 +35,7 @@ export default function Signup() {
                     <label htmlFor='password'>Password</label><br/>
                     <input type='password' name='password' className='border' required/><br/>
                     <Button variant='contained' className='my-2'>
-                        <input type='submit' value="Masuk"></input>
+                        <input type='submit' value="Daftar"></input>
                     </Button>
                 </form>
             </CardContent>
