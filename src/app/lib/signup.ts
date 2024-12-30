@@ -12,8 +12,8 @@ export default async function signup(formData: FormData) {
     } catch (e) {
         console.error(e);
     }
-    let db = (await conn!).db("Users");
-    let users = db.collection("USER");
+    const db = (await conn!).db("Users");
+    const users = db.collection("USER");
     if (await users.findOne({username: formData.get("username")}) != null) {
         console.error("username udah dipake anj")
         return;

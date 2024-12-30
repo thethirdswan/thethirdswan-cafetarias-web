@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function Login() {
     const [username, setUsername] = useState("")
-    function loginValid(e: any) {
+    function loginValid(e: { preventDefault: () => void; }) {
         if (username.length < 2) {
             alert("username ga boleh kurang dari dua huruf mmk");
             e.preventDefault();

@@ -12,9 +12,9 @@ export default async function login(formData: FormData) {
     } catch (e) {
         console.error(e);
     }
-    let db = (await conn!).db("Users");
-    let users = db.collection("USER");
-    let user = await users.findOne({username: formData.get("username")});
+    const db = (await conn!).db("Users");
+    const users = db.collection("USER");
+    const user = await users.findOne({username: formData.get("username")});
     if (user == null) {
         console.error("ga ada usernamenya goblok");
         return;

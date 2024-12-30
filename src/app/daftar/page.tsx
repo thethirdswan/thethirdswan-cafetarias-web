@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function Signup() {
     const [username, setUsername] = useState("")
     const [name, setName] = useState("")
-    function signupValid(e: any) {
+    function signupValid(e: { preventDefault: () => void; }) {
         if (name.length < 2) {
             alert("Nama tidak boleh kurang dari dua huruf.");
             e.preventDefault();
