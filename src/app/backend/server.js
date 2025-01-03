@@ -11,7 +11,7 @@ connect(process.env.MONGODB_URI)
 .then(() => console.log("MongoDB connected successfully"))
 .catch(err => console.error(err));
 
-app.get('/api/data', (req, res) => {
+app.get('/masuk', (req, res) => {
     res.json({ message: 'Hello backend, you bitch.'});
 });
 
