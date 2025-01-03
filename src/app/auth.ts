@@ -43,9 +43,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     },
                     { collection: 'USER'});
                     const User = conn.model('Users', userSchema);
-                    const logginguser = await User.findOne({ username: username })
+                    const logginguser = await User.findOne({ 'username': username })
                     console.log(`user: ${logginguser}`)
-                    console.log(`complete user: ${User}`)
                     bcrypt.compare(password, logginguser!.password, function (err, result) {
                         if (result) {
                             user = logginguser
@@ -56,8 +55,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     })
                 } catch (error) {
                     if (error instanceof ZodError) {
+                        console.log(`zod error happened. \n${error}`)
                         return null;
                     }
+                    console.log(`something else happened. \n${error}`)
                 }
                 return null;
             }
