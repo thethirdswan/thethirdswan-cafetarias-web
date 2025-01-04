@@ -1,13 +1,13 @@
-"use server"
 import { signOut } from "../auth";
 import { Button } from "@mui/material";
 
-export async function SignOut() {
+export function SignOut() {
     return (
         <form action={async () => {
-            await signOut()
+            "use server"
+            await signOut({ redirectTo: "/" })
         }}>
-            <Button variant="contained" color="error" className="m-5"><input type="submit" value="Sign Out" /></Button>
+            <Button variant="contained" color="error" className="m-5"><input type="submit" value="Keluar" /></Button>
         </form>
     )
 }
