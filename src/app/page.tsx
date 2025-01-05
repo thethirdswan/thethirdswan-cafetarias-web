@@ -1,6 +1,7 @@
 import MenuCarousel from "./ui/carousel";
 
 export default function Home() {
+  console.log(`mongodb uri: ${process.env.MONGODB_URI}, auth secret: ${process.env.AUTH_SECRET}`)
   return (
     <>
       <main className="text-center">
