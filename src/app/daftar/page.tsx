@@ -2,8 +2,12 @@ import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import signup from '@/app/lib/signup';
+import { redirect } from 'next/navigation';
+import { auth } from '../auth';
 
-export default function Signup() {
+export default async function Signup() {
+    const session = await auth();
+    if (session) return redirect("/")
     return (
         <Card className="mx-2 md:mx-[24.707vw]">
             <CardContent>
