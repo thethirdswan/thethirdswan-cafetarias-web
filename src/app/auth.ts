@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { ZodError } from "zod"
 import { signInSchema } from "./lib/zod"
@@ -30,14 +30,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'})
                     const User = conn.model('Users', userSchema);
                     const logginguser = await User.findOne({ username: username })
+                    if (!logginguser) {
+                      throw new Error("Pengguna tidak ditemukan.")
+                    }
                     const result = await bcrypt.compare(password, logginguser!.password)
                     if (result) {
                         user = logginguser;
                     }
                 } catch (error) {
                     if (error instanceof ZodError) {
-                        return null;
+                      console.error("Kredensial salah!\n" + error.message)
+                      return null;
                     }
+                    console.error("something else happened.\n" + error)
                 } finally {
                     return user;
                 }
