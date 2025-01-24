@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import Link from "next/link";
-import { auth } from "../auth";
+import { auth } from "../../../auth";
 import DesktopDrawer from "./drawers/desktopdrawer";
 
 export default async function DesktopHeader() {

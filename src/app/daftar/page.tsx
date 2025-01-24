@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import signup from '@/app/lib/signup';
 import { redirect } from 'next/navigation';
-import { auth } from '../auth';
+import { auth } from '../../../auth';
 
 export default async function Signup() {
     const session = await auth();
@@ -13,9 +13,9 @@ export default async function Signup() {
             <CardContent>
                 <form method='POST' action={signup}>
                     <label htmlFor='username'>Nama</label><br/>
-                    <input type='text' name='nama' className='border' required/><br/>
+                    <input type='text' name='nama' className='border' minLength={2} required/><br/>
                     <label htmlFor='username'>Username</label><br/>
-                    <input type='text' name='username' className='border' required/><br/>
+                    <input type='text' name='username' className='border' minLength={2} required/><br/>
                     <label htmlFor='password'>Password</label><br/>
                     <input type='password' name='password' className='border' required/><br/>
                     <Button variant='contained' className='my-2'>

@@ -1,8 +1,8 @@
 import MenuCarousel from "./ui/carousel";
 
 export default function Home() {
+
   return (
-    <>
       <main className="text-center">
       <p className="mb-4">
         Selamat datang di website resmi 
@@ -22,6 +22,5 @@ export default function Home() {
         <p className="mb-4">Kami buka dari jam 7:30 sampai 15:00, Senin - Jumat.</p>
       </div>
       </main>
-    </>
   );
 }

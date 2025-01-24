@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { ZodError } from "zod"
 import { signUpSchema } from "./zod";
 import { userSchema } from "./mongodbschema";
-import { signIn } from "../auth";
+import { signIn } from "../../../auth";
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
 
