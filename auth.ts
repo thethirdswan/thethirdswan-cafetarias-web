@@ -33,18 +33,23 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     const { username, password } = await signInSchema.parseAsync(credentials)
     
                     // TODO: redirect user finding to server side
-                    const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'})
-                    const User = conn.model('Users', userSchema);
-                    const logginguser = await User.findOne({ username: username });
-                    if (!logginguser) {
-                      throw new Error("Pengguna tidak ditemukan.");
-                    }
-                    const result = await bcrypt.compare(password, logginguser!.password)
-                    if (result) {
-                        user = logginguser;
-                    } else {
-                      throw new Error("Password salah.");
-                    }
+                    // const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'})
+                    // const User = conn.model('Users', userSchema);
+                    // const logginguser = await User.findOne({ username: username });
+                    // if (!logginguser) {
+                    //   throw new Error("Pengguna tidak ditemukan.");
+                    // }
+                    // const result = await bcrypt.compare(password, logginguser!.password)
+                    // if (result) {
+                    //     user = logginguser;
+                    // } else {
+                    //   throw new Error("Password salah.");
+                    // }
+                    user = await fetch("https://bsiduta-server.onrender.com/signin", {
+                      method: "POST",
+                      body: JSON.stringify({username: username, password: password})
+                    })
+                    console.log(user)
                     return user;
                 } catch (error) {
                     if (error instanceof ZodError) {
