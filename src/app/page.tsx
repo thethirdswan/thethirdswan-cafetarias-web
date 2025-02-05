@@ -1,4 +1,6 @@
+import { Button } from "@mui/material";
 import MenuCarousel from "./ui/carousel";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -18,7 +20,7 @@ export default function Home() {
       <MenuCarousel />
       <div>
         <p className="mb-4">Ingin</p>
-        <p className="mb-4">Cek menu hari ini, atau memesan?</p>
+        <p className="mb-4">Cek menu hari ini, atau <Link href="/pesan"><Button variant="contained">Memesan</Button></Link>?</p>
         <p className="mb-4">Kami buka dari jam 7:30 sampai 15:00, Senin - Jumat.</p>
       </div>
       </main>

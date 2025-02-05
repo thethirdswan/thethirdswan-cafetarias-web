@@ -32,6 +32,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 try {
                     const { username, password } = await signInSchema.parseAsync(credentials)
     
+                    // TODO: redirect user finding to server side
                     const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'})
                     const User = conn.model('Users', userSchema);
                     const logginguser = await User.findOne({ username: username });

@@ -8,7 +8,7 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnSettings = nextUrl.pathname.startsWith('/pengaturan')
-      const isOnOrder = nextUrl.pathname.startsWith('/order');
+      const isOnOrder = nextUrl.pathname.startsWith('/pesan');
       if (isOnSettings || isOnOrder) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
