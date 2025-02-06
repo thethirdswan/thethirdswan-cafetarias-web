@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent } from "@mui/material"
 import { JSX } from "react"
 
 export default async function FoodSlot() {
-    const res = await fetch("https://bsiduta-server.onrender.com/makanan")
+    const res = await fetch(`${process.env.SERVER_URL}/makanan`)
     const json = await res.json()
     let foods: JSX.Element[] = []
     json.forEach((item: any) => {

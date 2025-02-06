@@ -1,14 +1,20 @@
 "use server";
 
-import mongoose from "mongoose";
-import { auth } from "../../../auth";
-import { userSchema } from "./mongodbschema";
 import { redirect } from "next/navigation";
+import { auth } from "../../../auth";
 
 export default async function ubahlokasi(formData: FormData) {
     const session = await auth();
-    const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'});
-    const User = conn.model('Users', userSchema);
-    await User.updateOne({ username: session?.user?.username }, { lokasi: formData.get("lokasi")});
-    redirect("/");
+    const res = await fetch(`${process.env.SERVER_URL}/ubahlokasi`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user: {
+                username: session?.user?.username,
+                lokasi: formData.get("lokasi"),
+            }
+        })
+    }).then(() => redirect("/"))
 }

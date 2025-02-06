@@ -2,9 +2,6 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { ZodError } from "zod"
 import { signInSchema } from "./src/app/lib/zod"
-import { userSchema } from "./src/app/lib/mongodbschema";
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
 import { authConfig } from "./auth.config";
 
 declare module "next-auth" {
@@ -31,25 +28,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             authorize: async (credentials) => {
                 try {
                     const { username, password } = await signInSchema.parseAsync(credentials)
-    
-                    // TODO: redirect user finding to server side
-                    // const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'})
-                    // const User = conn.model('Users', userSchema);
-                    // const logginguser = await User.findOne({ username: username });
-                    // if (!logginguser) {
-                    //   throw new Error("Pengguna tidak ditemukan.");
-                    // }
-                    // const result = await bcrypt.compare(password, logginguser!.password)
-                    // if (result) {
-                    //     user = logginguser;
-                    // } else {
-                    //   throw new Error("Password salah.");
-                    // }
-                    user = await fetch("https://bsiduta-server.onrender.com/signin", {
+
+                    const req = await fetch(`${process.env.SERVER_URL}/signin`, {
                       method: "POST",
-                      body: JSON.stringify({username: username, password: password})
+                      headers: {
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify({
+                        user: {
+                          username: username, 
+                          password: password
+                        }
+                      })
                     })
-                    console.log(user)
+                    const json = await req.json()
+                    user = json.logginguser
                     return user;
                 } catch (error) {
                     if (error instanceof ZodError) {

@@ -2,12 +2,12 @@
 
 import { Suspense } from 'react';
 import LoginLoading from '../ui/loadingSkeletons/loading';
-import Login from '../ui/pages/login';
+import Signin from '../ui/pages/signin';
 
-export default function SuspenseLogin() {
+export default function SuspenseSignin() {
     return (
         <Suspense fallback={<LoginLoading/>}>
-            <Login/>
+            <Signin/>
         </Suspense>
     )
 }

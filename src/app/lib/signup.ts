@@ -1,14 +1,9 @@
 "use server";
 
-import { redirect } from "next/navigation";
-import { ZodError } from "zod"
 import { signUpSchema } from "./zod";
-import { userSchema } from "./mongodbschema";
 import { signIn } from "../../../auth";
-import mongoose from "mongoose";
-import bcrypt from 'bcrypt';
 
-export default async function signup(formData: FormData) {
+export async function signup(prevState: string | undefined, formData: FormData) {
     const form = {
         nama: formData.get("nama"),
         username: formData.get("username"),
@@ -17,22 +12,25 @@ export default async function signup(formData: FormData) {
     try {
         const { nama, username, password } = await signUpSchema.parseAsync(form)
         
-        const conn = mongoose.createConnection(process.env.MONGODB_URI || "", {dbName:'Users'})
-        const User = conn.model('Users', userSchema);
-        if (await User.findOne({ username: username })) {
-            throw new Error("Username sudah digunakan.")
+        const res = await fetch(`${process.env.SERVER_URL}/signup`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user: {
+                    nama: nama,
+                    username: username,
+                    password: password,
+                }
+            })
+        })
+        const json = await res.json()
+        if (res.status == 400) {
+            throw new Error(json.message)
         }
-        const hash = await bcrypt.hash(password, 10);
-
-        await User.create({ nama: nama, username: username, password: hash, lokasi: "Belum Ditentukan", admin: "false"})
         await signIn("credentials", {username, password});
     } catch (error) {
-        if (error instanceof ZodError) {
-            console.log(`Kredensial salah! \n${error}`)
-            return;
-        }
-        console.log(`something else happened; ${error}`)
-    } finally {
-        redirect("/");
+        return "Username telah digunakan."
     }
 }

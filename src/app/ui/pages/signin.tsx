@@ -4,7 +4,7 @@ import { Card, CardContent, Button } from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import { useActionState } from "react";
 
-export default function Login() {
+export default function Signin() {
     const [errorMessage, formAction, isPending] = useActionState(
         authenticate,
         undefined,
