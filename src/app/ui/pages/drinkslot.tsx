@@ -7,7 +7,7 @@ export default async function DrinkSlot() {
     let drinks: JSX.Element[] = []
     res.forEach((item: any) => {
         drinks.push(
-            <Card className="bg-slate-300 mb-2">
+            <Card className="!bg-slate-300 mb-2">
                 <CardContent>
                     <h4>{item.nama}</h4>
                     <p>Harga: Rp{item.harga}</p>

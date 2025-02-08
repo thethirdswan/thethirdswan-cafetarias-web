@@ -11,7 +11,7 @@ export default function Pesan() {
             <div className="md:grid grid-cols-2 mb-10">
                 <div>
                     <p className="text-center ml-[24.707vw]">Makanan</p>
-                    <Card className="ml-[24.707vw] mr-2 h-[75vh] overflow-scroll">
+                    <Card className="ml-[24.707vw] mr-2 h-[75vh] !overflow-scroll">
                         <CardContent>
                             <Suspense fallback={<Loading/>}>
                                 <FoodSlot/>
