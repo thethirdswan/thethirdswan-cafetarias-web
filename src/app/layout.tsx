@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react"
+import OrderProvider from "./lib/context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,9 @@ export default function RootLayout({
         <Header />
         <Toaster />
         <Analytics />
+        <OrderProvider>
         {children}
+        </OrderProvider>
         <Footer />
       </body>
     </html>

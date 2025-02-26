@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { OrderContext } from "../lib/context";
 
 export default function Counters(item : any) {
+    const { addToOrder, removeFromOrder } = useContext(OrderContext)
     const [counter, setCounter] = useState(0)
     const [minCounter, setMinCounter] = useState(true)
     const [maxCounter, setMaxCounter] = useState(false)
@@ -16,22 +18,19 @@ export default function Counters(item : any) {
 
     function mincounter(item : any) {
         setCounter(counter - 1); 
-        global.orderlist[item.nama] = counter
+        removeFromOrder(item)
         setMaxCounter(false);
-        console.log(counter); 
-        console.log(global.orderlist); 
         if (counter == 1) {
             setMinCounter(true);
-            delete global.orderlist[item.nama]
         }
     }
     
     function maxcounter(item : any) {
         setCounter(counter + 1); 
-        global.orderlist[item.nama] = counter
+        addToOrder(item)
         setMinCounter(false);
-        console.log(counter); 
-        console.log(global.orderlist); 
-        if (counter == item.stok - 1) setMaxCounter(true); 
+        if (counter == item.stok - 1) {
+            setMaxCounter(true)
+        } 
     }
 }

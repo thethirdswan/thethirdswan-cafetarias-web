@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Loading from "../loadingSkeletons/loading";
 import DrinkSlot from "./drinkslot";
 import FoodSlot from "./foodslot";
+import OrderForm from "../orderui";
 
 export default function Order() {
     return (
@@ -30,15 +31,7 @@ export default function Order() {
                     </Card>
                 </div>
             </div>
-            <Card className="mx-[24.707vw] mb-10">
-                <CardContent>
-                    <p>Diantar:</p>
-                    <input className="mr-2" type="radio" name="waktu" value="Sekarang" id="sekarang" defaultChecked/>
-                    <label htmlFor="sekarang" className="mr-6">Sekarang</label>
-                    <input className="mr-2" type="radio" name="waktu" value="Pada waktu:" id="padawaktu"/>
-                    <label htmlFor="padawaktu">Pada waktu:</label>
-                </CardContent>
-            </Card>
+            <OrderForm/>
         </main>
     )
 }
