@@ -10,7 +10,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@elysiajs/node": "^1.2.3",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.3.0",

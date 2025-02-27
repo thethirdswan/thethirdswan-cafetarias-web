@@ -21,7 +21,7 @@ export default function OrderReview() {
         total += item.harga * item.jumlah
     })
     return (
-        <Card className="mx-[24.707vw]">
+        <Card className="md:mx-[24.707vw] mx-2">
             <CardContent>
                 <p className="text-center">Detail pesanan anda:</p>
                 <p>Waktu diantar: {time}</p>
@@ -33,7 +33,7 @@ export default function OrderReview() {
                 <p className="text-center">Apakah ini benar?</p>
                 <div className="grid grid-cols-2">
                     <button onClick={() => resetOrder()}>Tidak</button>
-                    <button onClick={async () => {toast("Pesanan sedang diproses! Mohon ditunggu."); await orderAssemble(order, time, note); resetOrder();}}>Ya</button>
+                    <button onClick={async () => {toast("Pesanan sedang diproses! Mohon ditunggu."); await orderAssemble(order, time, note); resetOrder(); redirect("/")}}>Ya</button>
                 </div>
             </CardContent>
         </Card>
