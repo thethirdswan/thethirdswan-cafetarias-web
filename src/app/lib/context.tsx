@@ -43,7 +43,6 @@ export default function OrderProvider({ children }: { children: React.ReactNode}
             })
         } else {
             order.push({...items, jumlah: 1})
-            // order.push({items["nama"], })
         }
     }
 

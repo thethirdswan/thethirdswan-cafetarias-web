@@ -23,7 +23,7 @@ export default function MobileDrawer({session} : {session: boolean}) {
                     <Divider />
                     <div className="p-2 flex flex-col text-center" onClick={toggleDrawer(false)}>
                         <Link href="/pengaturan" className="m-2"><Button color="primary" variant="contained">Pengaturan</Button></Link>
-                        {/* <SignOut/> */}
+                        <Link href="/riwayatpesanan" className="m-2"><Button color="primary" variant="contained">Riwayat Pesanan</Button></Link>
                     </div>
                 </div>
             </Drawer>
