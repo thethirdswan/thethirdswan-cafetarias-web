@@ -1,10 +1,14 @@
 import { redirect } from "next/navigation"
 import { auth } from "../../../auth"
-import { Card, CardContent } from "@mui/material";
+import { Button, Card, CardActions, CardContent } from "@mui/material";
+import { Suspense } from "react";
+import Loading from "../ui/loadingSkeletons/loading";
+import DeleteButton from "../ui/deletebutton";
 
 export default async function RiwayatPesanan() {
     const session = await auth()
     if (!session) redirect("/masuk");
+
     const orders = await fetch(`${process.env.SERVER_URL}/riwayatpesanan/${session.user?.username}`,{
         headers: {
             "Content-Type": "application/json"
@@ -25,15 +29,30 @@ export default async function RiwayatPesanan() {
                     <p>Waktu Pemesanan: {order.waktuPemesanan}</p>
                     <p>Pesanan:</p>
                     {itemNodes}
+                    <hr/>
                     <p>Catatan: {order.catatan}</p>
+                    <p>Status: {order.status}</p>
                 </CardContent>
+                <CardActions className="flex flex-row-reverse">
+                    <DeleteButton orderId={order["_id"]}/>
+                </CardActions>
             </Card>
         )
     })
+    if (orderNodes.length == 0) {
+        return (
+            <main>
+                <h2 className="text-center text-lg">Riwayat Pesanan</h2>
+                <p className="text-center">Anda belum pernah memesan. Buatlah pesanan!</p>
+            </main>
+        )
+    }
     return (
         <main>
-            <h2 className="text-center">Riwayat Pesanan</h2>
-            {orderNodes}
+            <h2 className="text-center text-lg">Riwayat Pesanan</h2>
+            <Suspense fallback={<Loading/>}>
+                {orderNodes}
+            </Suspense>
         </main>
     )
 }
