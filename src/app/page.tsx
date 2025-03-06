@@ -5,19 +5,24 @@ import MenuCarousel from "./ui/carousel";
 import Link from "next/link";
 import { useEffect } from "react";
 
-export default function Home() {
+const useRegisterServiceWorker = () => {
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/sw.js")
+        .register("/firebase-messaging-sw.js")
         .then((registration) => {
-          console.log("Registration successful");
+          console.log("Service Worker registered:", registration);
         })
         .catch((error) => {
-          console.log("Service worker registration failed");
+          console.error("Service Worker registration failed:", error);
         });
     }
   }, []);
+};
+
+export default function Home() {
+
+useRegisterServiceWorker();
 
   return (
       <main className="text-center">

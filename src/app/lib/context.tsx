@@ -12,6 +12,7 @@ export type orderStructure = {
     resetOrder: () => void,
     updateTime: (time: string) => void,
     updateNote: (note: string) => void,
+    updateToken: (token:string) => void,
 }
 
 const initialState : orderStructure = {
@@ -23,6 +24,7 @@ const initialState : orderStructure = {
     resetOrder: () => {},
     updateTime: () => {},
     updateNote: () => {},
+    updateToken: () => {},
 }
 
 export const OrderContext = createContext(initialState)
@@ -31,6 +33,7 @@ export default function OrderProvider({ children }: { children: React.ReactNode}
     const [order, setOrder] = useState<any>([])
     const [time, setTime] = useState("Sekarang")
     const [note, setNote] = useState("Tidak ada")
+    const [token, setToken] = useState("")
     
     function addToOrder(items : any) {
         const orderExists = order.find((item: { nama: any; }) => items.nama === item.nama)
@@ -74,9 +77,13 @@ export default function OrderProvider({ children }: { children: React.ReactNode}
         setNote(catatan)
     }
 
+    function updateToken(token : string) {
+        setToken(token)
+    }
+
     return (
         <OrderContext.Provider value={{
-            order, time, note, addToOrder, removeFromOrder, resetOrder, updateTime, updateNote
+            order, time, note, addToOrder, removeFromOrder, resetOrder, updateTime, updateNote, updateToken
         }}>
             {children}
         </OrderContext.Provider>

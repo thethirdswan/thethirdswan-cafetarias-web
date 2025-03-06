@@ -8,13 +8,23 @@ export default function Counters(item : any) {
     const [counter, setCounter] = useState(0)
     const [minCounter, setMinCounter] = useState(true)
     const [maxCounter, setMaxCounter] = useState(false)
-    return (
-        <div className="flex flex-row">
-            <button className="p-2 bg-cyan-300" disabled={minCounter} onClick={() => mincounter(item.item)}>-</button>
-                <p className="p-2">{counter}</p>
-            <button className="p-2 bg-cyan-300" disabled={maxCounter} onClick={() => maxcounter(item.item)}>+</button>
-        </div>
-    )
+    if (item.item.stok == 0) {
+        return (
+            <div className="flex flex-row">
+                <button className="p-2 bg-cyan-300" disabled={true} onClick={() => mincounter(item.item)}>-</button>
+                    <p className="p-2">{counter}</p>
+                <button className="p-2 bg-cyan-300" disabled={true} onClick={() => maxcounter(item.item)}>+</button>
+            </div>
+        )
+    } else {
+        return (
+            <div className="flex flex-row">
+                <button className="p-2 bg-cyan-300" disabled={minCounter} onClick={() => mincounter(item.item)}>-</button>
+                    <p className="p-2">{counter}</p>
+                <button className="p-2 bg-cyan-300" disabled={maxCounter} onClick={() => maxcounter(item.item)}>+</button>
+            </div>
+        )
+    }
 
     function mincounter(item : any) {
         setCounter(counter - 1); 

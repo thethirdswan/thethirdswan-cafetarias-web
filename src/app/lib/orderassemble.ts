@@ -14,6 +14,7 @@ export default async function orderAssemble(order: any, time: String, note: Stri
         namaPemesan: session?.user?.nama,
         usernamePemesan: session?.user?.username,
         lokasiPemesan: session?.user?.lokasi,
+        tokenPemesan: session?.user?.token,
         waktuPemesanan: "Tanggal " + tanggal,
         pesanan: simpleOrder,
         waktuDiantar: time,
