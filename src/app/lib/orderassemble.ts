@@ -2,7 +2,7 @@
 
 import { auth } from "../../../auth";
 
-export default async function orderAssemble(order: any, time: String, note: String) {
+export default async function orderAssemble(order: any, time: String, note: String, paymentMethod: String, isPaid?: Boolean) {
     const session = await auth();
     const simpleOrder : any = new Object()
     order.forEach((items: any) => {
@@ -20,6 +20,8 @@ export default async function orderAssemble(order: any, time: String, note: Stri
         waktuDiantar: time,
         catatan: note,
         status: "Belum Selesai",
+        metodePembayaran: paymentMethod,
+        isPaid: isPaid || false,
     }
 
     const req = await fetch(`${process.env.SERVER_URL}/orderbaru`, {

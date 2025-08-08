@@ -24,7 +24,7 @@ export default async function RiwayatPesanan() {
             )
         }
         orderNodes.push(
-            <Card className="md:mx-[24.707vw] mb-2" key={order.waktuPemesanan}>
+            <Card className="md:mx-[24.707vw] mb-2" key={order._id}>
                 <CardContent>
                     <p>Waktu Pemesanan: {order.waktuPemesanan}</p>
                     <p>Pesanan:</p>
@@ -32,6 +32,8 @@ export default async function RiwayatPesanan() {
                     <hr/>
                     <p>Catatan: {order.catatan}</p>
                     <p>Status: {order.status}</p>
+                    <p>Metode pembayaran: {order.metodePembayaran}</p>
+                    <p>Pembayaran lunas: {!order.isPaid ? "Belum" : "Sudah"}</p>
                 </CardContent>
                 <CardActions className="flex flex-row-reverse">
                     <DeleteButton orderId={order["_id"]}/>

@@ -43,7 +43,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                       })
                     })
                     const json = await req.json()
-                    user = json.logginguser
+                    user = json.data
                     return user;
                 } catch (error) {
                     if (error instanceof ZodError) {
