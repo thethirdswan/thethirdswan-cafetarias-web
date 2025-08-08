@@ -2,9 +2,9 @@
 
 import { Card, CardContent } from "@mui/material";
 import { redirect, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function OrderSelesai() {
+function Selesai() {
     const searchParams = useSearchParams();
     const payload = searchParams.get('payload');
     if (payload === null) {
@@ -31,5 +31,13 @@ export default function OrderSelesai() {
                 </CardContent>
             </Card>
         </main>
+    )
+}
+
+export default function OrderSelesai() {
+    return (
+        <Suspense fallback={<p>Loading...</p>}>
+            <Selesai />
+        </Suspense>
     )
 }

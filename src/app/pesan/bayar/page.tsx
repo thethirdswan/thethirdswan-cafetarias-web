@@ -5,9 +5,9 @@ import { redirect, useSearchParams } from 'next/navigation'
 import { QRCodeSVG } from 'qrcode.react'
 import { OrderContext } from '@/app/lib/context'
 import orderAssemble from '@/app/lib/orderassemble'
-import { useContext } from 'react'
+import { Suspense, useContext } from 'react'
 
-export default function BayarQRIS() {
+function QRIS() {
     const searchParams = useSearchParams();
     const payload = searchParams.get('payload');
     if (payload === null) {
@@ -29,5 +29,13 @@ export default function BayarQRIS() {
                     }}>pretend it's done</button>
             </CardContent>
         </Card>
+    )
+}
+
+export default function BayarQRIS() {
+    return (
+        <Suspense fallback={<p>Loading...</p>}>
+            <QRIS />
+        </Suspense>
     )
 }
