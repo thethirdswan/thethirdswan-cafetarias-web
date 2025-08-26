@@ -9,14 +9,14 @@ export default function Header() {
         <header className="text-white bg-blue-700 text-center py-[10px] mb-[10px] lg:flex flex-row">
             <div className="flex flex-row">
                 <Image
-                    src="/images/logoSMK2.png"
+                    src="/images/A&S.png"
                     width={75}
                     height={75}
-                    alt="Logo SMK Negeri 2 Tabanan"
+                    alt="Logo The Third Swan"
                     className="m-2"
                 />
                 <Link href="/" className="text-xl my-auto m-2">
-                    <h1>Duta Cafetaria</h1>
+                    <h1>The Third Swan Cafetarias</h1>
                 </Link>
                 <MobileHeader/>
             </div>

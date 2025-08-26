@@ -1,2 +1,2 @@
-## BSI Duta - Next.js
-A website version of the original project "BSI Duta", a remake of [School Project: Production Unit](https://github.com/thethirdswan/schoolproject-production-unit) in MERN stack.
+## The Third Swan Cafetarias
+A project website that I decided to work on to sell for companies and instances that have their own cafetaria for their employees.

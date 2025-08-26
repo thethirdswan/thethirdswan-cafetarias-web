@@ -14,11 +14,11 @@ export default async function Pengaturan() {
             <Image
             height={100}
             width={100}
-            src="/images/logoSMK2.png"
-            alt="Logo SMK Negeri 2 Tabanan" 
+            src="/images/A&S.png"
+            alt="Logo The Third Swan" 
             className="mx-auto"/>
-            <h2 className="text-lg">Unit Produksi SMK Negeri 2 Tabanan</h2>
-            <p>Versi 1.0.0 Web</p>
+            <h2 className="text-lg">The Third Swan Cafetarias</h2>
+            <p>Versi 2.0.0 Web</p>
             <p>Masuk sebagai: {session.user?.nama}</p>
             <p>Lokasi: {session.user?.lokasi}</p>
             <Link href="/ubahlokasi"><Button variant="contained">Ubah Lokasi</Button></Link>

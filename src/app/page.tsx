@@ -29,13 +29,13 @@ useRegisterServiceWorker();
       <p className="mb-4">
         Selamat datang di website resmi 
         <br/> 
-        Unit Produksi SMK Negeri 2 Tabanan,
+        The Third Swan Cafetarias,
       </p>
       <p className="mb-4">
         Dimana makanan, minuman, dan peralatan sekolah dijual oleh siswa, untuk siswa! Kami juga menyediakan jasa print dokumen.
       </p>
       <p>
-        Berikut adalah menu tetap di Duta Cafetaria;
+        Berikut adalah menu tetap di The Third Swan Cafetarias;
       </p>
       <MenuCarousel />
       <div>
