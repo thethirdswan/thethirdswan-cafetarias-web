@@ -32,7 +32,7 @@ useRegisterServiceWorker();
         The Third Swan Cafetarias,
       </p>
       <p className="mb-4">
-        Dimana makanan, minuman, dan peralatan sekolah dijual oleh siswa, untuk siswa! Kami juga menyediakan jasa print dokumen.
+        Dimana makanan, minuman, dan peralatan sekolah dijual oleh siswa, untuk siswa!
       </p>
       <p>
         Berikut adalah menu tetap di The Third Swan Cafetarias;

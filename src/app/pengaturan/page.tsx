@@ -14,7 +14,7 @@ export default async function Pengaturan() {
             <Image
             height={100}
             width={100}
-            src="/images/A&S.png"
+            src="/images/AnS.png"
             alt="Logo The Third Swan" 
             className="mx-auto"/>
             <h2 className="text-lg">The Third Swan Cafetarias</h2>

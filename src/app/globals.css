@@ -12,3 +12,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.header {
+  background-color: #FFD93D;
+}
+
+.footer {
+  background-color: #FF9A00;
+}

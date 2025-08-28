@@ -6,10 +6,10 @@ import MobileHeader from "./mobileheader";
 
 export default function Header() {
     return (
-        <header className="text-white bg-blue-700 text-center py-[10px] mb-[10px] lg:flex flex-row">
+        <header className="text-white header text-center py-[10px] mb-[10px] lg:flex flex-row">
             <div className="flex flex-row">
                 <Image
-                    src="/images/A&S.png"
+                    src="/images/AnS.png"
                     width={75}
                     height={75}
                     alt="Logo The Third Swan"
