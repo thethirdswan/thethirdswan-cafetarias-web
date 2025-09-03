@@ -1,12 +1,53 @@
-"use client";
+"use client"
 
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
-
+import { Item } from '../lib/types';
 import 'swiper/css/bundle';
+import { useEffect, useState } from 'react';
+import CarouselImage from './carouselImage';
 
 export default function MenuCarousel() {
+    const [makanan, setMakanan] = useState<Item[]>([]);
+    const [minuman, setMinuman] = useState<Item[]>([]);
+
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/makanan`)
+            .then((res) => res.json())
+            .then((data) => setMakanan(data));
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/minuman`)
+            .then((res) => res.json())
+            .then((data) => setMinuman(data));
+    }, [])
+
+    let makananlist : JSX.Element[] = [];
+    makanan.forEach(async (item: Item) => {
+        makananlist.push(
+            <SwiperSlide key={item.nama}>
+                <CarouselImage type="makanan" item={item.nama.toLowerCase().replace(/\s+/g, "")} />
+                    <div className='w-full absolute bottom-8'>
+                        <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                            <p>{item.nama}</p>
+                            <p>Rp {item.harga}</p>
+                        </div>
+                    </div>
+            </SwiperSlide>
+        )
+    })
+    let minumanlist : JSX.Element[] = [];
+    minuman.forEach(async (item: Item) => {
+        minumanlist.push(
+            <SwiperSlide key={item.nama}>
+                <CarouselImage type="minuman" item={item.nama.toLowerCase().replace(/\s+/g, "")} />
+                    <div className='w-full absolute bottom-8'>
+                        <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
+                            <p>{item.nama}</p>
+                            <p>Rp {item.harga}</p>
+                        </div>
+                    </div>
+            </SwiperSlide>
+        )
+    })
     return (
         <div className="lg:grid grid-cols-2 gap-4 mx-4 text-white">
             <div>
@@ -17,66 +58,7 @@ export default function MenuCarousel() {
                 pagination={{ clickable: true }}
                 loop={true}
                 >
-                    <SwiperSlide>
-                        <Image
-                        src="/images/makanan/nasigoreng.jpg"
-                        width={659}
-                        height={300}
-                        alt='Nasi Goreng'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Nasi Goreng</p>
-                                <p>Rp 8.000 - 10.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/makanan/capcay.jpg"
-                        width={659}
-                        height={300}
-                        alt='Capcay'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Capcay</p>
-                                <p>Rp 10.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/makanan/miegoreng.jpg"
-                        width={659}
-                        height={300}
-                        alt='Mie Goreng'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Mie Instan Goreng</p>
-                                <p>Rp 8.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/makanan/miekuah.jpg"
-                        width={659}
-                        height={300}
-                        alt='Mie Kuah'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Mie Instan Kuah</p>
-                                <p>Rp 8.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                    {makananlist}
                 </Swiper>
             </div>
             <div>
@@ -87,126 +69,7 @@ export default function MenuCarousel() {
                 pagination={{ clickable: true }}
                 loop={true}
                 >
-                    <SwiperSlide>
-                        <Image
-                        src="/images/minuman/esteh.jpg"
-                        width={659}
-                        height={300}
-                        alt='Es Teh'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Es Teh</p>
-                                <p>Rp 3.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/minuman/esjeruk.jpg"
-                        width={659}
-                        height={300}
-                        alt='Es Jeruk'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Es Jeruk</p>
-                                <p>Rp 3.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/minuman/kopi.jpg"
-                        width={659}
-                        height={300}
-                        alt='Kopi'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Kopi</p>
-                                <p>Rp 3.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image
-                        src="/images/minuman/melonsquash.jpg"
-                        width={659}
-                        height={300}
-                        alt='Melon Squash'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Melon Squash</p>
-                                <p>Rp 6.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/minuman/fruitsquash.jpg"
-                        width={659}
-                        height={300}
-                        alt='Fruit Squash'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Fruit Squash</p>
-                                <p>Rp 6.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/minuman/orangesquash.jpg"
-                        width={659}
-                        height={300}
-                        alt='Orange Squash'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Orange Squash</p>
-                                <p>Rp 6.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image
-                        src="/images/minuman/rainbow.jpg"
-                        width={659}
-                        height={300}
-                        alt='Rainbow'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Rainbow</p>
-                                <p>Rp 6.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                    <Image
-                        src="/images/minuman/sunrise.jpg"
-                        width={659}
-                        height={300}
-                        alt='Sunrise'
-                        className='w-[100%]'
-                        />
-                        <div className='w-full absolute bottom-8'>
-                            <div className='mx-auto w-fit p-2 bg-slate-700 bg-opacity-50'>
-                                <p>Sunrise</p>
-                                <p>Rp 6.000</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                    {minumanlist}
                 </Swiper>
             </div>
         </div>

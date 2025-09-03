@@ -1,31 +1,28 @@
-"use client";
-
 import { Button } from "@mui/material";
 import MenuCarousel from "./ui/carousel";
 import Link from "next/link";
-import { useEffect } from "react";
+import ServiceWorker from "./lib/serviceWorker";
+// import { useEffect } from "react";
 
-const useRegisterServiceWorker = () => {
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/firebase-messaging-sw.js")
-        .then((registration) => {
-          console.log("Service Worker registered:", registration);
-        })
-        .catch((error) => {
-          console.error("Service Worker registration failed:", error);
-        });
-    }
-  }, []);
-};
+// const useRegisterServiceWorker = () => {
+//   useEffect(() => {
+//     if ("serviceWorker" in navigator) {
+//       navigator.serviceWorker
+//         .register("/firebase-messaging-sw.js")
+//         .then((registration) => {
+//           console.log("Service Worker registered:", registration);
+//         })
+//         .catch((error) => {
+//           console.error("Service Worker registration failed:", error);
+//         });
+//     }
+//   }, []);
+// };
 
 export default function Home() {
-
-useRegisterServiceWorker();
-
   return (
       <main className="text-center">
+        <ServiceWorker />
       <p className="mb-4">
         Selamat datang di website resmi 
         <br/> 
