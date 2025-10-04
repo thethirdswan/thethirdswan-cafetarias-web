@@ -2,22 +2,6 @@ import { Button } from "@mui/material";
 import MenuCarousel from "./ui/carousel";
 import Link from "next/link";
 import ServiceWorker from "./lib/serviceWorker";
-// import { useEffect } from "react";
-
-// const useRegisterServiceWorker = () => {
-//   useEffect(() => {
-//     if ("serviceWorker" in navigator) {
-//       navigator.serviceWorker
-//         .register("/firebase-messaging-sw.js")
-//         .then((registration) => {
-//           console.log("Service Worker registered:", registration);
-//         })
-//         .catch((error) => {
-//           console.error("Service Worker registration failed:", error);
-//         });
-//     }
-//   }, []);
-// };
 
 export default function Home() {
   return (
@@ -32,9 +16,10 @@ export default function Home() {
         Dimana makanan, minuman, dan peralatan sekolah dijual oleh siswa, untuk siswa!
       </p>
       <p>
-        Berikut adalah menu tetap di The Third Swan Cafetarias;
+        Berikut adalah menu sekilas di The Third Swan Cafetarias;
       </p>
       <MenuCarousel />
+      <Link href="/menu"><Button variant="contained" className="mt-2">Lihat Menu Lengkap</Button></Link>
       <div>
         <p className="mb-4">Ingin</p>
         <p className="mb-4">Cek <Link href="/menuhariini"><Button variant="contained">menu hari ini</Button></Link>, atau <Link href="/pesan"><Button variant="contained">Memesan</Button></Link>?</p>
